@@ -1,25 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Cecilia & Stefano</title>
-
     <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
+        * { box-sizing: border-box; }
+        html, body {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -32,8 +19,9 @@
             position: fixed;
             inset: 0;
             width: 100%;
-            height: 100%;
+            height: 100dvh;
             overflow: hidden;
+            background: #000;
         }
 
         .canva-frame {
@@ -41,112 +29,64 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            border: 0;
+            display: block;
         }
 
-        /* =========================
-           MARCA DE AGUA
-           Repetición compacta, sin
-           espacios horizontales y con
-           separación vertical equivalente
-           a la altura de las letras.
-        ========================= */
-
+        /*
+         * MARCA DE AGUA
+         * Patrón continuo, pequeño y diagonal.
+         * No depende de una cuadrícula: se repite como un mosaico CSS,
+         * evitando los espacios grandes que aparecían anteriormente.
+         */
         .watermark {
-            --wm-size: 8px;
-
             position: absolute;
-            inset: -45%;
-            z-index: 10;
+            inset: -30%;
+            z-index: 9999;
             pointer-events: none;
             overflow: hidden;
             transform: rotate(-28deg);
+            transform-origin: center;
         }
 
-        .watermark-grid {
-            width: 190%;
-            height: 190%;
-
-            display: grid;
-            grid-template-columns: repeat(6, max-content);
-
-            /* Cada palabra comienza exactamente donde termina la anterior. */
-            column-gap: 0;
-
-            /* El espacio entre renglones equivale a la altura de la letra. */
-            row-gap: var(--wm-size);
-            grid-auto-rows: var(--wm-size);
-
-            align-content: start;
-            justify-content: start;
-            align-items: start;
-            justify-items: start;
+        .watermark::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='32' viewBox='0 0 150 32'%3E%3Ctext x='0' y='11' fill='rgba(255,255,255,0.22)' font-family='Arial,sans-serif' font-size='8' font-weight='600' letter-spacing='0'%3EDangels Print Studio%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-position: 0 0;
+            background-size: 150px 32px;
         }
 
-        .watermark-grid span {
-            display: block;
-            width: max-content;
-            margin: 0;
-            padding: 0;
-
-            white-space: nowrap;
-
-            color: rgba(255, 255, 255, 0.20);
-
-            font-family: Arial, sans-serif;
-            font-size: var(--wm-size);
-            font-weight: 600;
-            letter-spacing: 0;
-            line-height: var(--wm-size);
-
-            text-shadow:
-                0 1px 2px rgba(0, 0, 0, 0.20);
-        }
-
+        /* Móvil: patrón todavía más compacto */
         @media (max-width: 600px) {
-
             .watermark {
-                --wm-size: 7px;
-                inset: -48%;
+                inset: -35%;
             }
 
-            .watermark-grid {
-                width: 210%;
-                height: 210%;
-                grid-template-columns: repeat(5, max-content);
-                column-gap: 0;
-                row-gap: var(--wm-size);
-                grid-auto-rows: var(--wm-size);
+            .watermark::before {
+                background-size: 115px 24px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='115' height='24' viewBox='0 0 115 24'%3E%3Ctext x='0' y='8.5' fill='rgba(255,255,255,0.22)' font-family='Arial,sans-serif' font-size='6.5' font-weight='600' letter-spacing='0'%3EDangels Print Studio%3C/text%3E%3C/svg%3E");
             }
-
         }
 
         @media (max-width: 380px) {
-
             .watermark {
-                --wm-size: 6.5px;
-                inset: -52%;
+                inset: -38%;
             }
 
-            .watermark-grid {
-                width: 220%;
-                height: 220%;
-                grid-template-columns: repeat(5, max-content);
-                column-gap: 0;
-                row-gap: var(--wm-size);
-                grid-auto-rows: var(--wm-size);
+            .watermark::before {
+                background-size: 105px 22px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='105' height='22' viewBox='0 0 105 22'%3E%3Ctext x='0' y='8' fill='rgba(255,255,255,0.22)' font-family='Arial,sans-serif' font-size='6' font-weight='600' letter-spacing='0'%3EDangels Print Studio%3C/text%3E%3C/svg%3E");
             }
-
         }
-
     </style>
-
 </head>
-
 <body>
-
     <main class="invitation">
-
         <iframe
             class="canva-frame"
             src="https://www.canva.com/design/DAHUr8w5Qi8/xtzxRr24YZPybjyx_E64yg/view?embed"
@@ -155,107 +95,7 @@
             allow="fullscreen"
         ></iframe>
 
-        <div class="watermark" aria-hidden="true">
-
-            <div class="watermark-grid">
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-                <span>Dangels Print Studio</span>
-
-            </div>
-
-        </div>
-
+        <div class="watermark" aria-hidden="true"></div>
     </main>
-
 </body>
-
 </html>
