@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Cecilia & Stefano
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: #000;
+
+            overflow: hidden;
+        }
+
+
+        .invitation {
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .canva-frame {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            border: none;
+        }
+
+
+        .watermark {
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 10;
+
+            pointer-events: none;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+
+        .watermark span {
+            transform:
+                rotate(-32deg);
+
+            white-space: nowrap;
+
+            color:
+                rgba(255, 255, 255, 0.24);
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size:
+                clamp(28px, 8vw, 80px);
+
+            font-weight: 900;
+
+            letter-spacing: 4px;
+
+            text-align: center;
+
+            text-shadow:
+                0 2px 8px
+                rgba(0, 0, 0, 0.45);
+        }
+
+
+        .watermark-corner {
+            position: absolute;
+
+            left: 14px;
+            bottom: 14px;
+
+            padding: 8px 12px;
+
+            border-radius: 6px;
+
+            background:
+                rgba(0, 0, 0, 0.5);
+
+            color:
+                rgba(255, 255, 255, 0.8);
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="invitation">
+
+        <iframe
+            class="canva-frame"
+            src="https://www.canva.com/design/DAHUr8w5Qi8/xtzxRr24YZPybjyx_E64yg/view?embed"
+            title="Cecilia & Stefano"
+            allowfullscreen
+            allow="fullscreen"
+        >
+        </iframe>
+
+
+        <div class="watermark">
+
+            <span>
+                DANGELS PRINT STUDIO
+            </span>
+
+            <div class="watermark-corner">
+                DANGELS PRINT STUDIO · DEMO
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
