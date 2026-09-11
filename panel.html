@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dangels Print Studio · Panel</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">DP</div>
+                <div><h1>Dangels Print Studio</h1><span>Panel de control</span></div>
+            </div>
+            <button class="new-project-button" onclick="openNewProjectModal()">+ Nueva invitación</button>
+        </header>
+        <main class="dashboard">
+            <section class="dashboard-header">
+                <div>
+                    <p class="eyebrow">MIS PROYECTOS</p>
+                    <h2>Invitaciones digitales</h2>
+                    <p class="description">Administra tus invitaciones, enlaces protegidos y enlaces originales de Canva.</p>
+                </div>
+                <div class="project-counter"><strong id="projectCount">0</strong><span>proyectos</span></div>
+            </section>
+            <section id="projectsContainer" class="projects-container"></section>
+        </main>
+        <div id="emptyState" class="empty-state" style="display:none;">
+            <div class="empty-icon">+</div>
+            <h3>Todavía no tienes invitaciones</h3>
+            <p>Crea tu primera invitación digital.</p>
+            <button onclick="openNewProjectModal()" class="primary-button">Crear invitación</button>
+        </div>
+    </div>
+    <div id="projectModal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <button class="modal-close" onclick="closeNewProjectModal()">×</button>
+            <p class="eyebrow">NUEVA INVITACIÓN</p>
+            <h2>Crear proyecto</h2>
+            <p class="modal-description">Introduce los datos de tu invitación de Canva.</p>
+            <form id="projectForm">
+                <label>Nombre de la invitación<input id="projectName" type="text" placeholder="Ej. Cecilia & Stefano" required></label>
+                <label>Slug / enlace<input id="projectSlug" type="text" placeholder="cecilia-stefano" required><small>Este nombre formará parte del enlace público.</small></label>
+                <label>Enlace original de Canva<textarea id="canvaUrl" placeholder="Pega aquí el enlace de Canva..." required></textarea></label>
+                <div class="modal-actions">
+                    <button type="button" class="secondary-button" onclick="closeNewProjectModal()">Cancelar</button>
+                    <button type="submit" class="primary-button">Crear invitación</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./data/projects.js"></script>
+    <script src="./app.js"></script>
+    <script src="./session.js"></script>
+</body>
+</html>
