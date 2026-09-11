@@ -1,0 +1,8 @@
+{
+  "name": "panel-invitaciones-dps",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node -e \"console.log('Dangels Print Studio: static site, no build required.')\""
+  }
+}
