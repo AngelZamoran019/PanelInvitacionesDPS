@@ -56,10 +56,14 @@
         }
 
 
+        /* =========================
+           MARCA DE AGUA
+        ========================= */
+
         .watermark {
             position: absolute;
 
-            inset: 0;
+            inset: -35%;
 
             z-index: 10;
 
@@ -71,62 +75,52 @@
             justify-content: center;
 
             overflow: hidden;
+
+            transform: rotate(-30deg);
         }
 
 
-        .watermark span {
-            transform:
-                rotate(-32deg);
+        .watermark-grid {
+            width: 150%;
+            height: 150%;
 
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, max-content);
+
+            grid-auto-rows: min-content;
+
+            justify-content: space-around;
+
+            align-content: space-around;
+
+            column-gap: 70px;
+            row-gap: 34px;
+        }
+
+
+        .watermark-grid span {
             white-space: nowrap;
 
             color:
-                rgba(255, 255, 255, 0.24);
+                rgba(255, 255, 255, 0.22);
 
             font-family:
                 Arial,
                 sans-serif;
 
-            font-size:
-                clamp(28px, 8vw, 80px);
+            font-size: 13px;
 
-            font-weight: 900;
+            font-weight: 600;
 
-            letter-spacing: 4px;
+            letter-spacing: 1.2px;
 
-            text-align: center;
+            line-height: 1;
 
             text-shadow:
-                0 2px 8px
-                rgba(0, 0, 0, 0.45);
-        }
-
-
-        .watermark-corner {
-            position: absolute;
-
-            left: 14px;
-            bottom: 14px;
-
-            padding: 8px 12px;
-
-            border-radius: 6px;
-
-            background:
-                rgba(0, 0, 0, 0.5);
-
-            color:
-                rgba(255, 255, 255, 0.8);
-
-            font-family:
-                Arial,
-                sans-serif;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing: 1px;
+                0 1px 3px
+                rgba(0, 0, 0, 0.18);
         }
 
     </style>
@@ -148,14 +142,70 @@
         </iframe>
 
 
-        <div class="watermark">
+        <div class="watermark" aria-hidden="true">
 
-            <span>
-                DANGELS PRINT STUDIO
-            </span>
+            <div class="watermark-grid">
 
-            <div class="watermark-corner">
-                DANGELS PRINT STUDIO · DEMO
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+                <span>Dangels Print Studio</span>
+
             </div>
 
         </div>
